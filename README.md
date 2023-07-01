@@ -1,2 +1,1 @@
 # painel-estacao
-# painel-escatacao
