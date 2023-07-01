@@ -7,7 +7,7 @@ import plotly.express as px
 
 # import from folders
 from app import *
-from components import sidebar, dashboard, temp
+from components import sidebar, dashboard, temp, energia, fumaca, umidade
 
 # DataFrames and Dcc.Store
 
@@ -33,12 +33,20 @@ app.layout = dbc.Container(children=[
 
 @app.callback(Output("page-content", "children"), [Input("url", "pathname")])
 def render_page_content(pathname):
-    if pathname == "/" or pathname == "/dashboards":
+    if pathname == "/" or pathname == "/dashboard":
         return dashboard.layout
 
-    if pathname == "/temp":
+    if pathname == "/temperatura":
         return temp.layout
-        
+    
+    if pathname == "/energia":
+        return energia.layout
+
+    if pathname == "/fumaca":
+        return fumaca.layout
+    
+    if pathname == "/umidade":
+        return umidade.layout
 
 if __name__ == '__main__':
     app.run_server(debug=True)
